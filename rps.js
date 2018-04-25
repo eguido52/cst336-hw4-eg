@@ -31,14 +31,11 @@ function select(choice)
 	imgPlayer.src = 'images/'+ choice + '.png';
 	deselectAll();
 	if(choice.toLowerCase()=='rock')
-		$("#btnRock").css("background-color", "red");
-		//btnRock.style.backgroundColor = '#888888';
+		btnRock.style.backgroundColor = '#888888';
 	if(choice.toLowerCase()=='paper')
-		$("#btnPaper").css("background-color", "#888888");
-		//btnPaper.style.backgroundColor = '#888888';
+		btnPaper.style.backgroundColor = '#888888';
 	if(choice.toLowerCase()=='scissors')
-		$("#btnScissors").css("background-color", "#888888");
-		//btnScissors.style.backgroundColor = '#888888';
+		btnScissors.style.backgroundColor = '#888888';
 	
 	btnGo.style.display = 'block';
 }
