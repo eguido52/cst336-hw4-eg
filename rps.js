@@ -8,122 +8,150 @@ var playerChoice;
 
 function startGame()
 {
-	document.getElementById('introScreen').style.display = 'none';
+	$('#introScreen').hide();
+	//document.getElementById('introScreen').style.display = 'none';
 }
 
 function replay()
 {
-	document.getElementById('endScreen').style.display = 'none';
+	$('#endScreen').hide();
+	//document.getElementById('endScreen').style.display = 'none';
 }
 
 function init(){
-	imgPlayer = document.getElementById("imgPlayer");
-	btnRock = document.getElementById("btnRock");
-	btnPaper = document.getElementById("btnPaper");
-	btnScissors = document.getElementById("btnScissors");
-	btnGo = document.getElementById("btnGo");
+	//imgPlayer = document.getElementById("imgPlayer");
+	imgPlayer = $("#imgPlayer");
+	//btnRock = document.getElementById("btnRock");
+	btnRock = $("#btnRock");
+	//btnPaper = document.getElementById("btnPaper");
+	btnPaper = $("#btnPaper");
+	//btnScissors = document.getElementById("btnScissors");
+	btnScissors = $("#btnScissors");
+	//btnGo = document.getElementById("btnGo");
+	btnGo = $("#btnGo");
 	deselectAll();
 }
 	
 function select(choice)
 {
 	playerChoice = choice;
-	imgPlayer.src = 'images/'+ choice + '.png';
+	imgPlayer.attr("src", "images/"+choice+".png");//imgPlayer.src = 'images/'+ choice + '.png';
 	deselectAll();
 	if(choice.toLowerCase()=='rock')
-		btnRock.style.backgroundColor = '#888888';
+		btnRock.css("background-color", "#888888");//btnRock.style.backgroundColor = '#888888';
 	if(choice.toLowerCase()=='paper')
-		btnPaper.style.backgroundColor = '#888888';
+		btnPaper.css("background-color", "#888888");//btnPaper.style.backgroundColor = '#888888';
 	if(choice.toLowerCase()=='scissors')
-		btnScissors.style.backgroundColor = '#888888';
+		btnScissors.css("background-color", "#888888");//btnScissors.style.backgroundColor = '#888888';
 	
-	btnGo.style.display = 'block';
+	btnGo.show();//btnGo.style.display = 'block';
 }
 	
 function deselectAll()
 {
-	btnRock.style.backgroundColor = 'silver';
-	btnPaper.style.backgroundColor = 'silver';
-	btnScissors.style.backgroundColor = 'silver';
+	//btnRock.style.backgroundColor = 'silver';
+	btnRock.css("background-color", "silver");
+	//btnPaper.style.backgroundColor = 'silver';
+	btnPaper.css("background-color", "silver");
+	//btnScissors.style.backgroundColor = 'silver';
+	btnScissors.css("background-color", "silver");
 }
 
 function go()
 {
-	var txtEndTitle = document.getElementById('txtEndTitle');
-	var txtEndMessage = document.getElementById('txtEndMessage');
+	var txtEndTitle = $("#txtEndTitle");//document.getElementById('txtEndTitle');
+	var txtEndMessage = $("#txtEndMessage");//document.getElementById('txtEndMessage');
 	
 	var numChoice = Math.floor(Math.random()*3);
-	var imgComputer = document.getElementById('imgComputer');
+	var imgComputer = $("#imgComputer");//document.getElementById('imgComputer');
 	
-	document.getElementById('lblRock').style.backgroundColor = '#EEEEEE';
-	document.getElementById('lblPaper').style.backgroundColor = '#EEEEEE';
-	document.getElementById('lblScissors').style.backgroundColor = '#EEEEEE';
+	$("#lblRock").css("background-color", "#EEEEEE");//document.getElementById('lblRock').style.backgroundColor = '#EEEEEE';
+	$("#lblPaper").css("background-color", "#EEEEEE");//document.getElementById('lblPaper').style.backgroundColor = '#EEEEEE';
+	$("#lblScissors").css("background-color", "#EEEEEE");//document.getElementById('lblScissors').style.backgroundColor = '#EEEEEE';
 	
 	if(numChoice==0)
 	{
 		computerChoice = 'rock';
-		imgComputer.src = 'images/rock.png';
-		document.getElementById('lblRock').style.backgroundColor = 'yellow';
+		imgComputer.attr("src", "images/rock.png");//src = 'images/rock.png';
+		$("#lblRock").css("background-color", "yellow");//document.getElementById('lblRock').style.backgroundColor = 'yellow';
 		
 		if(playerChoice == 'paper')
 		{
-			txtEndTitle.innerHTML = 'Paper covers Rock';
-			txtEndMessage.innerHTML = 'YOU WIN';
+			txtEndTitle.html("Paper covers Rock");
+			txtEndMessage.html("YOU WIN");
+			// txtEndTitle.innerHTML = 'Paper covers Rock';
+			// txtEndMessage.innerHTML = 'YOU WIN';
 			
 		}
 		else if(playerChoice == 'scissors')
 		{
-			txtEndTitle.innerHTML = 'Rock covers Scissors';
-			txtEndMessage.innerHTML = 'YOU LOSE';
+			txtEndTitle.html("Rock covers Scissors");
+			txtEndMessage.html("YOU LOSE");
+			// txtEndTitle.innerHTML = 'Rock crushes Scissors';
+			// txtEndMessage.innerHTML = 'YOU LOSE';
 		}
 		else if(playerChoice == 'rock')
 		{
-			txtEndTitle.innerHTML = '';
-			txtEndMessage.innerHTML = 'TIE';
+			txtEndTitle.html("");
+			txtEndMessage.html("TIE");
+			// txtEndTitle.innerHTML = '';
+			// txtEndMessage.innerHTML = 'TIE';
 		}
 	}
 	else if(numChoice == 1)
 	{
 		computerChoice = 'paper';
-		imgComputer.src = 'images/paper.png';
-		document.getElementById('lblPaper').style.backgroundColor = 'yellow';
+		imgComputer.attr("src", "images/paper.png");//imgComputer.src = 'images/paper.png';
+		$("#lblPaper").css("background-color", "yellow");//document.getElementById('lblPaper').style.backgroundColor = 'yellow';
 	
 		if(playerChoice == 'scissors')
 		{
-			txtEndTitle.innerHTML = 'Scissors cuts Paper';
-			txtEndMessage.innerHTML = 'YOU WIN';
+			txtEndTitle.html("Scissors cuts Paper");
+			txtEndMessage.html("YOU WIN");
+			//txtEndTitle.innerHTML = 'Scissors cuts Paper';
+			//txtEndMessage.innerHTML = 'YOU WIN';
 		}
 		else if(playerChoice == 'rock')
 		{
-			txtEndTitle.innerHTML = 'Paper covers Rock';
-			txtEndMessage.innerHTML = 'YOU LOSE';
+			txtEndTitle.html("Paper covers Rock");
+			txtEndMessage.html("YOU LOSE");
+			//txtEndTitle.innerHTML = 'Paper covers Rock';
+			//txtEndMessage.innerHTML = 'YOU LOSE';
 		}
 		else if(playerChoice == 'paper')
 		{
-			txtEndTitle.innerHTML = '';
-			txtEndMessage.innerHTML = 'TIE';
+			txtEndTitle.html("");
+			txtEndMessage.html("TIE");
+			//txtEndTitle.innerHTML = '';
+			//txtEndMessage.innerHTML = 'TIE';
 		}
 	}
 	else
 	{
 		computerChoice = 'scissors';
-		imgComputer.src = 'images/scissors.png';
-		document.getElementById('lblScissors').style.backgroundColor = 'yellow';
+		imgComputer.attr("src", "images/scissors.png");//imgComputer.src = 'images/scissors.png';
+		$("#lblScissors").css("background-color", "yellow");//document.getElementById('lblScissors').style.backgroundColor = 'yellow';
 	
 		if(playerChoice == 'rock')
 		{
-			txtEndTitle.innerHTML = 'Rock smashes Scissors';
-			txtEndMessage.innerHTML = 'YOU WIN';
+			txtEndTitle.html("Rock smashes Scissors");
+			txtEndMessage.html("YOU WIN");
+			// txtEndTitle.innerHTML = 'Rock smashes Scissors';
+			// txtEndMessage.innerHTML = 'YOU WIN';
 		}
 		else if(playerChoice == 'paper')
 		{
-			txtEndTitle.innerHTML = 'Scissors cuts Paper';
-			txtEndMessage.innerHTML = 'YOU LOSE';
+			txtEndTitle.html("Scissors cuts Paper");
+			txtEndMessage.html("YOU LOSE");
+			// txtEndTitle.innerHTML = 'Scissors cuts Paper';
+			// txtEndMessage.innerHTML = 'YOU LOSE';
 		}
 		else if(playerChoice == 'scissors')
 		{
-			txtEndTitle.innerHTML = '';
-			txtEndMessage.innerHTML = 'TIE';
+			txtEndTitle.html("");
+			txtEndMessage.html("TIE");
+			// txtEndTitle.innerHTML = '';
+			// txtEndMessage.innerHTML = 'TIE';
 		}
 	}
 	

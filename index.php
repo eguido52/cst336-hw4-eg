@@ -2,8 +2,7 @@
 	<head>
 		<title>Rock Paper Scissors</title>
 		<link rel="stylesheet" type="text/css" href="rps.css">
-		<script language="javascript" type="text/javascript" src="rps.js"></script>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	</head>
 	<body onload="init()">
 		<div id="gameWindow">
@@ -62,5 +61,7 @@
 			
 		</div>
 	</body>
+	<script language="javascript" type="text/javascript" src="rps.js"></script>
+
 </html>
 
